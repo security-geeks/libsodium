@@ -87,6 +87,30 @@ crypto_core_ed25519_scalar_invert(unsigned char *recip, const unsigned char *s)
 }
 
 void
+crypto_core_ed25519_scalar_negate(unsigned char *neg, const unsigned char *s)
+{
+    fe25519 g;
+    fe25519 h;
+
+    fe25519_frombytes(g, s);
+    fe25519_0(h);
+    fe25519_sub(h, h, g);
+    fe25519_tobytes(neg, h);
+}
+
+void
+crypto_core_ed25519_scalar_complement(unsigned char *comp, const unsigned char *s)
+{
+    fe25519 g;
+    fe25519 h;
+
+    fe25519_frombytes(g, s);
+    fe25519_1(h);
+    fe25519_sub(h, h, g);
+    fe25519_tobytes(comp, h);
+}
+
+void
 crypto_core_ed25519_scalar_reduce(unsigned char *r,
                                   const unsigned char *s)
 {
