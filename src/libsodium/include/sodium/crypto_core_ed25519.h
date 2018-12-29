@@ -58,6 +58,16 @@ SODIUM_EXPORT
 void crypto_core_ed25519_scalar_complement(unsigned char *comp, const unsigned char *s)
             __attribute__ ((nonnull));
 
+SODIUM_EXPORT
+void crypto_core_ed25519_scalar_add(unsigned char *z, const unsigned char *x,
+                                    const unsigned char *y)
+            __attribute__ ((nonnull));
+
+SODIUM_EXPORT
+void crypto_core_ed25519_scalar_sub(unsigned char *z, const unsigned char *x,
+                                    const unsigned char *y)
+            __attribute__ ((nonnull));
+
 /*
  * The interval `s` is sampled from should be at least 317 bits to ensure almost
  * uniformity of `r` over `L`.

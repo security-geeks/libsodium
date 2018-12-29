@@ -111,6 +111,30 @@ crypto_core_ed25519_scalar_complement(unsigned char *comp, const unsigned char *
 }
 
 void
+crypto_core_ed25519_scalar_add(unsigned char *z, const unsigned char *x,
+                               const unsigned char *y)
+{
+    fe25519 x_, y_, z_;
+
+    fe25519_frombytes(x_, x);
+    fe25519_frombytes(y_, y);
+    fe25519_add(z_, x_, y_);
+    fe25519_tobytes(z, z_);
+}
+
+void
+crypto_core_ed25519_scalar_sub(unsigned char *z, const unsigned char *x,
+                               const unsigned char *y)
+{
+    fe25519 x_, y_, z_;
+
+    fe25519_frombytes(x_, x);
+    fe25519_frombytes(y_, y);
+    fe25519_sub(z_, x_, y_);
+    fe25519_tobytes(z, z_);
+}
+
+void
 crypto_core_ed25519_scalar_reduce(unsigned char *r,
                                   const unsigned char *s)
 {

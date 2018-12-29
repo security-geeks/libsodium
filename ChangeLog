@@ -16,7 +16,8 @@ not to be detected.
  - New low-level APIs for arithmetic mod the order of the prime order group:
 `crypto_core_ed25519_scalar_random()`, `crypto_core_ed25519_scalar_reduce()`,
 `crypto_core_ed25519_scalar_invert()`, `crypto_core_ed25519_scalar_negate()`,
-and `crypto_core_ed25519_scalar_complement()`.
+`crypto_core_ed25519_scalar_complement()`, `crypto_core_ed25519_scalar_add()`
+and `crypto_core_ed25519_scalar_sub()`.
  - New low-level APIs for scalar multiplication without clamping:
 `crypto_scalarmult_ed25519_base_noclamp()`,
 and `crypto_scalarmult_ed25519_noclamp()`. These new APIs are
